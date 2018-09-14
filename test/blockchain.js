@@ -14,7 +14,7 @@ describe('embark.Blockchain', function () {
 
     describe('with empty config', function () {
       it('should have a default config', function (done) {
-        let config = {
+        let expectedConfig = {
           networkType: 'custom',
           genesisBlock: false,
           geth_bin: 'geth',
@@ -24,7 +24,7 @@ describe('embark.Blockchain', function () {
           rpcPort: 8545,
           rpcApi: ['eth', 'web3', 'net', 'debug'],
           rpcCorsDomain: false,
-          networkId: 12301,
+          networkId: 1337,
           port: 30303,
           nodiscover: false,
           maxpeers: 25,
@@ -33,7 +33,7 @@ describe('embark.Blockchain', function () {
           whisper: true,
           account: {},
           bootnodes: "",
-          wsApi: ["eth", "web3", "net", "shh", "debug"],
+          wsApi: ["eth", "web3", "net", "shh", "debug", "pubsub"],
           wsHost: defaultHost,
           wsOrigins: false,
           wsPort: 8546,
@@ -45,13 +45,12 @@ describe('embark.Blockchain', function () {
           verbosity: undefined,
           proxy: true
         };
-        let blockchain = new Blockchain(config, 'geth');
+        let blockchain = new Blockchain({}, 'geth');
 
-        if(config.proxy){
-          config.wsPort += constants.blockchain.servicePortOnProxy;
-          config.rpcPort += constants.blockchain.servicePortOnProxy;
-        }
-        assert.deepEqual(blockchain.config, config);
+        expectedConfig.wsPort += constants.blockchain.servicePortOnProxy;
+        expectedConfig.rpcPort += constants.blockchain.servicePortOnProxy;
+
+        assert.deepEqual(blockchain.config, expectedConfig);
         blockchain.kill();
         done();
       });

@@ -76,7 +76,7 @@
    "unknown command": "comando desconocido",
    "did you mean": "querías decir",
    "warning: running default config on a non-development environment": "aviso: ejecutando la configuración predefinida en un ambiente de no-desarrollo",
-   "could not find {{geth_bin}} command; is {{client_name}} installed or in the PATH?": "no se pudo encontrar el comando {{geth_bin}}; ¿Está {{client_name}} instalado o en la RUTA?",
+   "Ethereum client bin not found:":"Ethereum client bin not found:",
    "no accounts found": "no se encontraron cuentas",
    "initializing genesis block": "inicializando bloque genesis",
    "rpcCorsDomain set to *": "rpcCorsDomain definido como *",

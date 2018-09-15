@@ -25,7 +25,7 @@
    "no colors in case it's needed for compatbility purposes": "Sin colores, en caso de ser necessario para compatibilidad con la terminal",
    "filename to output logs (default: %s)": "fichero/archivo para los logs (predefinido: %s)",
    "run dapp (default: %s)": "ejecutar la dapp (applicación decentralizada) (predefinido: %s)",
-   "Use a specific ethereum client or simulator (supported: %s)": "Usa un cliente o un simulador de ethereum específico (soportado: %s)",
+   "Use a specific ethereum client [%s] (default: %s)": "Usa un cliente de ethereum específico [%s] (predefinido: %s)",
    "run blockchain server (default: %s)": "ejecuta un nodo de blockchain (predefinido: %s)",
    "run a fast ethereum rpc simulator": "ejecuta un simulador RPC de ethereum",
    "use testrpc as the rpc simulator [%s]": "usa testrpc como simulator de rpc [%s]",

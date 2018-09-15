@@ -41,7 +41,6 @@ describe('embark.Blockchain', function () {
           targetGasLimit: false,
           syncmode: undefined,
           syncMode: undefined,
-          syncmode: undefined,
           verbosity: undefined,
           proxy: true
         };

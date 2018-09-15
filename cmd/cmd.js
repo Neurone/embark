@@ -3,7 +3,7 @@ const EmbarkController = require('./cmd_controller.js');
 const i18n = require('../lib/core/i18n/i18n.js');
 const utils = require('../lib/utils/utils.js');
 
-let embark = new EmbarkController;
+let embark = new EmbarkController();
 
 // set PWD to process.cwd() since Windows doesn't have a value for PWD
 if (!process.env.PWD) {
@@ -142,7 +142,7 @@ class Cmd {
       .command('build [environment]')
       .option('--contracts', 'only compile contracts into Embark wrappers')
       .option('--logfile [logfile]', __('filename to output logs (default: none)'))
-      .option('-c, --client [client]', __('Use a specific ethereum client (supported: %s)', 'geth'))
+      .option('-c, --client [client]', __('Use a specific ethereum client [%s] (default: %s)', 'geth, parity', 'geth'))
       .option('--loglevel [loglevel]', __('level of logging to display') + ' ["error", "warn", "info", "debug", "trace"]', /^(error|warn|info|debug|trace)$/i, 'debug')
       .option('--locale [locale]', __('language to use (default: en)'))
       .option('--pipeline [pipeline]', __('webpack config to use (default: production)'))
@@ -164,7 +164,7 @@ class Cmd {
     program
       .command('run [environment]')
       .option('-p, --port [port]', __('port to run the dev webserver (default: %s)', '8000'))
-      .option('-c, --client [client]', __('Use a specific ethereum client (supported: %s)', 'geth'))
+      .option('-c, --client [client]', __('Use a specific ethereum client [%s] (default: %s)', 'geth, parity', 'geth'))
       .option('-b, --host [host]', __('host to run the dev webserver (default: %s)', 'localhost'))
       .option('--noserver', __('disable the development webserver'))
       .option('--nodashboard', __('simple mode, disables the dashboard'))
@@ -195,7 +195,7 @@ class Cmd {
   console() {
     program
       .command('console [environment]')
-      .option('-c, --client [client]', __('Use a specific ethereum client (supported: %s)', 'geth'))
+      .option('-c, --client [client]', __('Use a specific ethereum client [%s] (default: %s)', 'geth, parity', 'geth'))
       .option('--logfile [logfile]', __('filename to output logs (default: %s)', 'none'))
       .option('--loglevel [loglevel]', __('level of logging to display') + ' ["error", "warn", "info", "debug", "trace"]', /^(error|warn|info|debug|trace)$/i, 'debug')
       .option('--locale [locale]', __('language to use (default: en)'))
@@ -218,7 +218,7 @@ class Cmd {
   blockchain() {
     program
       .command('blockchain [environment]')
-      .option('-c, --client [client]', __('Use a specific ethereum client (supported: %s)', 'geth'))
+      .option('-c, --client [client]', __('Use a specific ethereum client [%s] (default: %s)', 'geth, parity', 'geth'))
       .option('--locale [locale]', __('language to use (default: en)'))
       .description(__('run blockchain server (default: %s)', 'development'))
       .action(function(env, options) {
@@ -236,7 +236,7 @@ class Cmd {
     program
       .command('simulator [environment]')
       .description(__('run a fast ethereum rpc simulator'))
-      .option('--testrpc', __('use testrpc as the rpc simulator [%s]', 'default'))
+      .option('--testrpc', __('use ganache-cli (former "testrpc") as the rpc simulator [%s]', 'default'))
       .option('-p, --port [port]', __('port to run the rpc simulator (default: %s)', '8545'))
       .option('-h, --host [host]', __('host to run the rpc simulator (default: %s)', 'localhost'))
       .option('-a, --accounts [numAccounts]', __('number of accounts (default: %s)', '10'))
@@ -296,7 +296,7 @@ class Cmd {
       .option('--logfile [logfile]', __('filename to output logs (default: %s)', 'none'))
       .option('--loglevel [loglevel]', __('level of logging to display') + ' ["error", "warn", "info", "debug", "trace"]', /^(error|warn|info|debug|trace)$/i, 'debug')
       .option('--locale [locale]', __('language to use (default: en)'))
-      .option('-c, --client [client]', __('Use a specific ethereum client (supported: %s)', 'geth'))
+      .option('-c, --client [client]', __('Use a specific ethereum client [%s] (default: %s)', 'geth, parity', 'geth'))
       .option('--pipeline [pipeline]', __('webpack config to use (default: production)'))
       .description(__('Upload your dapp to a decentralized storage') + '.')
       .action(function(env, _options) {

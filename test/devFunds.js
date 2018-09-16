@@ -41,7 +41,6 @@ describe('embark.DevFunds', function () {
     wsRPC: true,
     targetGasLimit: false,
     syncMode: undefined,
-    syncmode: undefined,
     verbosity: undefined,
     proxy: true
   };

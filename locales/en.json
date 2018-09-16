@@ -15,6 +15,7 @@
   "filename to output logs (default: %s)": "filename to output logs (default: %s)",
   "run dapp (default: %s)": "run dapp (default: %s)",
   "Use a specific ethereum client [%s] (default: %s)": "Use a specific ethereum client [%s] (default: %s)",
+  "Unknow client \"%s\". Please use one of the following: %s": "Unknow client \"%s\". Please use one of the following: %s",
   "run blockchain server (default: %s)": "run blockchain server (default: %s)",
   "run a fast ethereum rpc simulator": "run a fast ethereum rpc simulator",
   "use testrpc as the rpc simulator [%s]": "use testrpc as the rpc simulator [%s]",

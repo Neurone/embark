@@ -17,7 +17,7 @@ module.exports = {
   // assumed to be the intended environment by `embark run` and `embark blockchain`
   development: {
     networkType: "custom", // Can be: testnet, rinkeby, livenet or custom, in which case, it will use the specified networkId
-    networkId: "1337", // Network id used when networkType is custom
+    networkId: 1337, // Network id used when networkType is custom
     isDev: true, // Uses and ephemeral proof-of-authority network with a pre-funded developer account, mining enabled
     datadir: ".embark/development/datadir", // Data directory for the databases and keystore
     mineWhenNeeded: true, // Uses our custom script (if isDev is false) to mine only when needed
@@ -38,7 +38,7 @@ module.exports = {
   // used with "embark run privatenet" and/or "embark blockchain privatenet"
   privatenet: {
     networkType: "custom",
-    networkId: "1337",
+    networkId: 1337,
     isDev: false,
     genesisBlock: "config/privatenet/genesis.json", // Genesis block to initiate on first creation of a development node
     datadir: ".embark/privatenet/datadir",

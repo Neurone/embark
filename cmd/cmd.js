@@ -228,7 +228,7 @@ class Cmd {
           embarkConfig: 'embark.json',
           interceptLogs: false
         });
-        embark.blockchain(env || 'development', options.client || 'geth');
+        embark.blockchain(env || 'development', options.client);
       });
   }
 

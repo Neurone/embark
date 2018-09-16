@@ -58,8 +58,8 @@ describe('embark.Blockchain', function() {
         let config = {
           networkType: 'livenet',
           genesisBlock: 'foo/bar/genesis.json',
-          ethereumClientName: 'geth',
-          ethereumClientBin: 'geth',
+          ethereumClientName: 'parity',
+          ethereumClientBin: 'parity',
           datadir: '/foo/datadir/',
           mineWhenNeeded: true,
           rpcHost: defaultHost,
@@ -90,8 +90,8 @@ describe('embark.Blockchain', function() {
         let expectedConfig = {
           networkType: 'livenet',
           genesisBlock: 'foo/bar/genesis.json',
-          ethereumClientName: 'geth',
-          ethereumClientBin: 'geth',
+          ethereumClientName: 'parity',
+          ethereumClientBin: 'parity',
           datadir: '/foo/datadir/',
           mineWhenNeeded: true,
           rpcHost: defaultHost,

@@ -31,6 +31,7 @@ describe('embark.Blockchain', function() {
           vmdebug: false,
           whisper: true,
           account: {},
+          devPassword: "",
           bootnodes: "",
           wsApi: ["eth", "web3", "net", "shh", "debug", "pubsub"],
           wsHost: defaultHost,
@@ -41,7 +42,7 @@ describe('embark.Blockchain', function() {
           syncMode: undefined,
           verbosity: undefined,
           proxy: true,
-          silent: undefined
+          silent: undefined          
         };
         // We check also proxy's ports because proxy is set to true
         expectedConfig.wsPort += constants.blockchain.servicePortOnProxy;
@@ -74,6 +75,7 @@ describe('embark.Blockchain', function() {
           vmdebug: false,
           whisper: false,
           account: {},
+          devPassword: "foo/bar/devpassword",
           bootnodes: "",
           wsApi: ["eth", "web3", "net", "shh", "debug"],
           wsHost: defaultHost,
@@ -106,6 +108,7 @@ describe('embark.Blockchain', function() {
           vmdebug: false,
           whisper: false,
           account: {},
+          devPassword: "foo/bar/devpassword",
           bootnodes: "",
           wsApi: ["eth", "web3", "net", "shh", "debug"],
           wsHost: defaultHost,

@@ -154,7 +154,7 @@ class Cmd {
         _options.logFile = _options.logfile; // fix casing
         _options.logLevel = _options.loglevel; // fix casing
         _options.onlyCompile = _options.contracts;
-        _options.client = _options.client || 'geth';
+        _options.client = _options.client || 'geth';  //TODO-#733?
         _options.webpackConfigName = _options.pipeline || 'production';
         embark.build(_options);
       });
@@ -181,7 +181,7 @@ class Cmd {
           env: env || 'development',
           serverPort: options.port,
           serverHost: options.host,
-          client: options.client || 'geth',
+          client: options.client,
           locale: options.locale,
           runWebserver: !options.noserver,
           useDashboard: !options.nodashboard,
@@ -206,7 +206,7 @@ class Cmd {
         i18n.setOrDetectLocale(options.locale);
         embark.console({
           env: env || 'development',
-          client: options.client || 'geth',
+          client: options.client, //TODO-#733?
           locale: options.locale,
           logFile: options.logfile,
           logLevel: options.loglevel,
@@ -265,9 +265,9 @@ class Cmd {
     program
       .command('test [file]')
       .option('-n , --node <node>', __('Node to connect to. Valid values are ["vm", "embark", "<custom node endpoint>"]: \n') +
-              '                       vm - ' + __('Starts an Ethereum simulator (ganache) and runs the tests using the simulator') + '\n' +
-              '                       embark - ' + __('Uses the node associated with an already running embark process') + '\n' +
-              '                       ' + __('<custom node endpoint> - Connects to a running node available at the end point and uses it to run the tests'))
+        '                       vm - ' + __('Starts an Ethereum simulator (ganache) and runs the tests using the simulator') + '\n' +
+        '                       embark - ' + __('Uses the node associated with an already running embark process') + '\n' +
+        '                       ' + __('<custom node endpoint> - Connects to a running node available at the end point and uses it to run the tests'))
       .option('-d , --gasDetails', __('When set, will print the gas cost for each contract deploy'))
       .option('-c , --coverage', __('When set, will generate the coverage after the tests'))
       .option('--locale [locale]', __('language to use (default: en)'))
@@ -284,8 +284,10 @@ class Cmd {
         options.node = node;
         checkDeps();
         i18n.setOrDetectLocale(options.locale);
-        embark.runTests({file, loglevel: options.loglevel, gasDetails: options.gasDetails,
-          node: options.node, coverage: options.coverage});
+        embark.runTests({
+          file, loglevel: options.loglevel, gasDetails: options.gasDetails,
+          node: options.node, coverage: options.coverage
+        });
       });
   }
 
@@ -310,7 +312,7 @@ class Cmd {
         _options.ensDomain = _options.ens;
         _options.logFile = _options.logfile; // fix casing
         _options.logLevel = _options.loglevel; // fix casing
-        _options.client = _options.client || 'geth';
+        _options.client = _options.client || 'geth'; // TODO-#733?
         _options.webpackConfigName = _options.pipeline || 'production';
         embark.upload(_options);
       });

@@ -16,8 +16,10 @@ module.exports = {
   // default environment, merges with the settings in default
   // assumed to be the intended environment by `embark run` and `embark blockchain`
   development: {
+    ethereumClientName: "geth", // Can be geth or parity (default:geth)
+    //ethereumClientBin: "geth",  // path to the client binary. Useful if it is not in the global PATH
     networkType: "custom", // Can be: testnet, rinkeby, livenet or custom, in which case, it will use the specified networkId
-    networkId: "1337", // Network id used when networkType is custom
+    networkId: 1337, // Network id used when networkType is custom
     isDev: true, // Uses and ephemeral proof-of-authority network with a pre-funded developer account, mining enabled
     datadir: ".embark/development/datadir", // Data directory for the databases and keystore
     mineWhenNeeded: true, // Uses our custom script (if isDev is false) to mine only when needed
@@ -30,7 +32,8 @@ module.exports = {
     account: {
       // numAccounts: 3, // When specified, creates accounts for use in the dapp. This option only works in the development environment, and can be used as a quick start option that bypasses the need for MetaMask in development. These accounts are unlocked and funded with the below settings.
       // password: "config/development/password", // Password for the created accounts (as specified in the `numAccounts` setting)
-      // balance: "5 ether" // Balance to be given to the created accounts (as specified in the `numAccounts` setting)
+      // balance: "5 ether", // Balance to be given to the created accounts (as specified in the `numAccounts` setting)
+      devPassword: "config/development/devpassword" // [Parity-only] File with a void line to unlock the Parity dev account
     }
   },
 
@@ -38,7 +41,7 @@ module.exports = {
   // used with "embark run privatenet" and/or "embark blockchain privatenet"
   privatenet: {
     networkType: "custom",
-    networkId: "1337",
+    networkId: 1337,
     isDev: false,
     genesisBlock: "config/privatenet/genesis.json", // Genesis block to initiate on first creation of a development node
     datadir: ".embark/privatenet/datadir",

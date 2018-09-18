@@ -154,7 +154,7 @@ class Cmd {
         _options.logFile = _options.logfile; // fix casing
         _options.logLevel = _options.loglevel; // fix casing
         _options.onlyCompile = _options.contracts;
-        _options.client = _options.client || 'geth';  //TODO-#733?
+        _options.client = _options.client;
         _options.webpackConfigName = _options.pipeline || 'production';
         embark.build(_options);
       });
@@ -206,7 +206,7 @@ class Cmd {
         i18n.setOrDetectLocale(options.locale);
         embark.console({
           env: env || 'development',
-          client: options.client, //TODO-#733?
+          client: options.client,
           locale: options.locale,
           logFile: options.logfile,
           logLevel: options.loglevel,
@@ -312,7 +312,7 @@ class Cmd {
         _options.ensDomain = _options.ens;
         _options.logFile = _options.logfile; // fix casing
         _options.logLevel = _options.loglevel; // fix casing
-        _options.client = _options.client || 'geth'; // TODO-#733?
+        _options.client = _options.client;
         _options.webpackConfigName = _options.pipeline || 'production';
         embark.upload(_options);
       });

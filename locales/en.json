@@ -16,6 +16,7 @@
   "run dapp (default: %s)": "run dapp (default: %s)",
   "Use a specific ethereum client [%s] (default: %s)": "Use a specific ethereum client [%s] (default: %s)",
   "Unknow client \"%s\". Please use one of the following: %s": "Unknow client \"%s\". Please use one of the following: %s",
+  "Miner requested, but Parity does not embed a miner! Use Geth or install ethminer (https://github.com/ethereum-mining/ethminer)":"Miner requested, but Parity does not embed a miner! Use Geth or install ethminer (https://github.com/ethereum-mining/ethminer)",
   "run blockchain server (default: %s)": "run blockchain server (default: %s)",
   "run a fast ethereum rpc simulator": "run a fast ethereum rpc simulator",
   "use testrpc as the rpc simulator [%s]": "use testrpc as the rpc simulator [%s]",

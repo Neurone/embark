@@ -21,7 +21,7 @@ module.exports = {
     networkType: "custom", // Can be: testnet, rinkeby, livenet or custom, in which case, it will use the specified networkId
     networkId: 1337, // Network id used when networkType is custom
     isDev: true, // Uses and ephemeral proof-of-authority network with a pre-funded developer account, mining enabled
-    datadir: ".embark/development/datadir", // Data directory for the databases and keystore
+    datadir: ".embark/development/datadir", // Data directory for the databases and keystore (Geth 1.8.15 and Parity 2.0.4 can use the same base folder, till now they does not conflict with each other)
     mineWhenNeeded: true, // Uses our custom script (if isDev is false) to mine only when needed
     nodiscover: true, // Disables the peer discovery mechanism (manual peer addition)
     maxpeers: 0, // Maximum number of network peers (network disabled if set to 0) (default: 25)
@@ -60,6 +60,28 @@ module.exports = {
     simulatorBlocktime: 0
   },
 
+  // merges with the settings in default
+  // used with "embark run privatparityenet" and/or "embark blockchain privateparitynet"
+  privateparitynet: {
+    ethereumClientName: "parity",
+    networkType: "custom",
+    networkId: 1337,
+    isDev: false,
+    genesisBlock: "config/privatenet/genesis-parity.json", // Genesis block to initiate on first creation of a development node
+    datadir: ".embark/privatenet/datadir", // (Geth 1.8.15 and Parity 2.0.4 can use the same base folder, till now they does not conflict with each other)
+    mineWhenNeeded: false,
+    nodiscover: true,
+    maxpeers: 0,
+    proxy: true,
+    account: {
+      // address: "", // When specified, uses that address instead of the default one for the network
+      password: "config/privatenet/password" // Password to unlock the account
+    },
+    targetGasLimit: 8000000,
+    simulatorMnemonic: "example exile argue silk regular smile grass bomb merge arm assist farm",
+    simulatorBlocktime: 0
+  },
+  
   // merges with the settings in default
   // used with "embark run testnet" and/or "embark blockchain testnet"
   testnet: {

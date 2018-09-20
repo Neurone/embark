@@ -58,15 +58,13 @@ module.exports = {
     simulatorBlocktime: 0
   },
 
-  // merges with the settings in default
-  // used with "embark run privatparityenet" and/or "embark blockchain privateparitynet"
   privateparitynet: {
     ethereumClientName: "parity",
     networkType: "custom",
     networkId: 1337,
     isDev: false,
     genesisBlock: "config/privatenet/genesis-parity.json", // Genesis block to initiate on first creation of a development node
-    datadir: ".embark/privatenet/datadir", // (Geth 1.8.15 and Parity 2.0.4 can use the same base folder, till now they does not conflict with each other)
+    datadir: ".embark/privatenet/datadir",
     mineWhenNeeded: false,
     nodiscover: true,
     maxpeers: 0,
